@@ -11,6 +11,7 @@ if(!array_key_exists('passwd', $_POST)):
   return false;
 endif;
 
+// password here
 $passwd = md5('D3ploy !');
 
 if (!md5($_POST['passwd']) == $passwd):
