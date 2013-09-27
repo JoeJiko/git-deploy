@@ -20,13 +20,13 @@ if (!md5($_POST['passwd']) == $passwd):
   $resp['status'] = "not-authorized";
   $resp['output'] = "You are not Authorized.";
   echo json_encode($resp);
-
-else:
-  $output = shell_exec('rollout 2>&1');
+  return false;
 endif;
 
+// deploy!
 header('HTTP/1.1 200 OK');
 header('Content-Type: application/json');
+$output = shell_exec('rollout 2>&1');
 $resp['status'] = 'success';
 $resp['output'] = 'Deployed! with output:<br>'.$output;
 echo json_encode($resp);
