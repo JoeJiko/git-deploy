@@ -5,7 +5,7 @@
   <h1 class="deploy-title">Deploy?</h1>
   <button id="forward" class="btn-style3 deploy-forward" type="submit" data-action="deploy">Okay</button>
   <div class="btn-style2-indent">
-    <button id="rewind" class="btn-style2 deploy-rewind" type="submit" data-action="revert">Oh Sh*t</button>
+    <button id="rewind" class="btn-style2 deploy-rewind blink" type="submit" data-action="revert">Oh Sh*t</button>
   </div>
 </section>
 
@@ -13,11 +13,31 @@
   <div class="dcm-positioning">
     <div class="dcm-close"><i class="modernpics" data-icon="x"></i></div>
     <div class="dcm-content">
-      <label for="passwd">Enter secret code</label>
+      <label for="passwd">Type secret code</label>
       <input type="password" name="passwd" id="passwd">
+      <div class="helper">
+        (Press <em>enter</em> when done. <em>Escape</em> to close)
+      </div>
     </div>
   </div>
   <div class="dcm-mask"></div>
 </div>
+
+<div class="deploy-rewind-modal">
+  <div class="dcm-positioning">
+    <div class="dcm-close"><i class="modernpics" data-icon="x"></i></div>
+    <div class="dcm-content">
+      <label for="passwd">Rewind!</label>
+      <div class="helper">
+        (Everything is back to normal.. probably)
+      </div>
+      <div class="helper">
+        <button class="dcm-close-rewind">OK!</button>
+      </div>
+    </div>
+  </div>
+  <div class="dcm-mask"></div>
+</div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="deploy.js"></script>

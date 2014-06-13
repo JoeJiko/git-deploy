@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+  function rewind() {
+    $('body').addClass('rewind--active');
+    $('.dcm-close-rewind').on('click', rewind_close);
+  }
+
+  function rewind_close() {
+    $('body').removeClass('rewind--active');
+    $('.dcm-close-rewind').off('click', rewind_close);
+
+    return false;
+  }
+
   function confirm_deployment() {
     $('body').addClass('confirm--active');
 
@@ -13,6 +25,10 @@ $(document).ready(function(){
     $('body').off('keypress', handle_deploy_keypress);
     $("#passwd").off('keydown', handle_deploy_signal);
     $('.dcm-close').off('click', confirm_deployment_close);
+  }
+
+  function handle_rewind_signal(evt) {
+    rewind();
   }
 
   function handle_deploy_signal(evt) {
@@ -51,6 +67,7 @@ $(document).ready(function(){
   });
 
   $("#rewind").on({
+    'click': handle_rewind_signal,
     'mouseenter': function(evt){
       swap_bg_img({"id": "revert", "set": true});
     },
